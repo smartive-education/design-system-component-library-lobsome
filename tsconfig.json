@@ -1,20 +1,30 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "jsx": "react",
-    "target": "es6",
-    "module": "commonjs",
-    "outDir": "./build",
     "declaration": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "lib": [
+      "ES5",
+      "ES2015",
+      "ES2016",
+      "DOM",
+      "ESNext"
+    ],
+    "types": [
+      "node"
+    ],
+    "module": "es2015",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "outDir": "dist/esm",
+    "sourceMap": true,
     "strict": true,
-    "rootDir": "src"
+    "target": "ES6"
   },
-  "exclude": [
-    "node_modules",
-    "dist"
-  ],
   "include": [
-    "src/**/*"
+    "src/**/*.ts",
+    "src/**/*.tsx"
   ]
 }

@@ -7,7 +7,9 @@
     "tag": "latest"
   },
   "scripts": {
-    "build": "echo 'build'",
+    "build": "rm -rf /dist && npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module CommonJS --outDir dist/cjs",
     "build-storybook": "build-storybook",
     "storybook": "start-storybook -p 6006"
   },

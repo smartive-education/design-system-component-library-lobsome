@@ -1,5 +1,4 @@
 import React, {HTMLAttributes, ReactNode} from 'react';
-import './button.css';
 
 export interface Props extends HTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
