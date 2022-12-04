@@ -1,11 +1,11 @@
 import React, { HTMLAttributes, ReactNode } from 'react';
-import { Icon } from './Icon';
+import { Icon, Icons } from './Icon';
 import './Button.css';
 
 export interface Props extends HTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
     type: 'slate' | 'violet' | 'gradient';
-    icon: string;
+    icon: Icons;
     buttonSize: 'm' | 'l';
 }
 
@@ -24,6 +24,7 @@ const buttonSizes: Record<string, string[]> = {
  * Primary UI component for user interaction
  */
 export const Button = ({ children, type = 'slate', icon = 'mumble', buttonSize = 'm', ...props }: Props) => {
+    const sizeOptions = !children && buttonSize === 'l' ? ['gap-3', 'p-3'] : buttonSizes[buttonSize];
     return (
         <button
             {...props}
@@ -33,15 +34,15 @@ export const Button = ({ children, type = 'slate', icon = 'mumble', buttonSize =
                 'items-center',
                 'justify-center',
                 'text-white',
-                'rounded-lg',
                 'font-semibold',
                 'leading-4',
+                children ? 'rounded-lg' : 'rounded-3xl',
                 ...typeClasses[type],
-                ...buttonSizes[buttonSize],
+                ...sizeOptions,
             ].join(' ')}
         >
             {children}
-            <Icon type={'mumble'} />
+            <Icon type={icon} />
         </button>
     );
 };

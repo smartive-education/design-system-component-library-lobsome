@@ -1,31 +1,36 @@
 import React, { ReactNode } from 'react';
 
+export const iconList = [
+    'like',
+    'like_outline',
+    'reply',
+    'reply_outline',
+    'arrow_down',
+    'arrow_left',
+    'arrow_up',
+    'arrow_right',
+    'repost',
+    'time',
+    'mumble',
+    'fullscreen',
+    'send',
+    'upload',
+    'location',
+    'checkmark',
+    'share',
+    'profile',
+    'eye',
+    'settings',
+    'log_out',
+    'edit',
+    'calendar',
+    'cancel',
+] as const;
+
+export type Icons = typeof iconList[number];
+
 export interface Props {
-    type:
-        | 'like'
-        | 'like_outline'
-        | 'reply'
-        | 'reply_outline'
-        | 'arrow_down'
-        | 'arrow_left'
-        | 'arrow_up'
-        | 'arrow_right'
-        | 'repost'
-        | 'time'
-        | 'mumble'
-        | 'fullscreen'
-        | 'send'
-        | 'upload'
-        | 'location'
-        | 'checkmark'
-        | 'share'
-        | 'profile'
-        | 'eye'
-        | 'settings'
-        | 'log_out'
-        | 'edit'
-        | 'calendar'
-        | 'cancel';
+    type: Icons;
 }
 
 const icons: Record<string, ReactNode> = {
