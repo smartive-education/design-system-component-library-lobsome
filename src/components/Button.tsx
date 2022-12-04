@@ -6,6 +6,7 @@ export interface Props extends HTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
     type: 'slate' | 'violet' | 'gradient';
     icon: string;
+    buttonSize: 'm' | 'l';
 }
 
 const typeClasses: Record<string, string[]> = {
@@ -14,10 +15,15 @@ const typeClasses: Record<string, string[]> = {
     gradient: ['button-gradient'],
 };
 
+const buttonSizes: Record<string, string[]> = {
+    m: ['gap-2', 'p-3'],
+    l: ['gap-3', 'py-4', 'px-6'],
+};
+
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ children, type = 'slate', icon = 'mumble', ...props }: Props) => {
+export const Button = ({ children, type = 'slate', icon = 'mumble', buttonSize = 'm', ...props }: Props) => {
     return (
         <button
             {...props}
@@ -26,13 +32,12 @@ export const Button = ({ children, type = 'slate', icon = 'mumble', ...props }: 
                 'flex-row',
                 'items-center',
                 'justify-center',
-                'gap-2',
-                'p-3',
                 'text-white',
                 'rounded-lg',
                 'font-semibold',
                 'leading-4',
                 ...typeClasses[type],
+                ...buttonSizes[buttonSize],
             ].join(' ')}
         >
             {children}

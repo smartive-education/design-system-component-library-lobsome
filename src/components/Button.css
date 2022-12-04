@@ -2,6 +2,10 @@
     background-image: linear-gradient(90deg, theme('colors.pink.500') 0%, theme('colors.violet.600') 100%);
 }
 
-.button-gradient:hover, .button-gradient:active {
+.button-gradient:hover {
     background-image: linear-gradient(90deg, theme('colors.pink.500') -12.56%, theme('colors.violet.600') 62.92%);
+}
+
+.button-gradient:active {
+    background-image: linear-gradient(90deg, theme('colors.pink.500') -15.33%, theme('colors.violet.600') 38.87%);
 }
