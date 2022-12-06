@@ -7,9 +7,12 @@
         "tag": "latest"
     },
     "scripts": {
-        "build": "rm -rf /dist && npm run build:esm && npm run build:cjs",
+        "prebuild": "npm run build:barrel",
+        "build": "rm -rf /dist && npm run build:esm && npm run build:cjs && npm run build:clean",
         "build:esm": "tsc",
-        "build:cjs": "tsc --module CommonJS --outDir dist/cjs",
+        "build:cjs": "tsc --module CommonJS --outDir dist/cjs --declarationDir dist/cjs/types",
+        "build:barrel": "ctix create -p ./tsconfig.json -a ./src --overwrite",
+        "build:clean": "find . -name index.ts -delete",
         "build-storybook": "build-storybook",
         "storybook": "start-storybook -p 6006"
     },
@@ -28,6 +31,7 @@
         "@storybook/testing-library": "^0.0.13",
         "autoprefixer": "^10.4.13",
         "babel-loader": "^8.3.0",
+        "ctix": "^1.7.0",
         "husky": "^8.0.2",
         "postcss": "^8.4.19",
         "prettier": "2.8.0",

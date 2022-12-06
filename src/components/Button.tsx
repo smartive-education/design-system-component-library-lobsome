@@ -2,7 +2,7 @@ import React, { HTMLAttributes, ReactNode } from 'react';
 import { Icon, Icons } from './Icon';
 import './Button.css';
 
-export interface Props extends HTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
     type: 'slate' | 'violet' | 'gradient';
     icon: Icons;
@@ -23,7 +23,7 @@ const buttonSizes: Record<string, string[]> = {
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ children, type = 'slate', icon = 'mumble', buttonSize = 'm', ...props }: Props) => {
+export const Button = ({ children, type = 'slate', icon = 'mumble', buttonSize = 'm', ...props }: ButtonProps) => {
     const sizeOptions = !children && buttonSize === 'l' ? ['gap-3', 'p-3'] : buttonSizes[buttonSize];
     return (
         <button

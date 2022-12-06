@@ -1,13 +1,13 @@
 import React, { ReactNode } from 'react';
 
-export interface Props extends React.HTMLProps<HTMLAnchorElement> {
+export interface LinkButtonProps extends React.HTMLProps<HTMLAnchorElement> {
     children: ReactNode;
 }
 
 /**
  * Link Button uses <a> as Element
  */
-export const LinkButton = ({ children, ...props }: Props) => {
+export const LinkButton = ({ children, ...props }: LinkButtonProps) => {
     console.log(props);
     return (
         <a

@@ -29,7 +29,7 @@ export const iconList = [
 
 export type Icons = typeof iconList[number];
 
-export interface Props {
+export interface IconProps {
     type: Icons;
 }
 
@@ -275,6 +275,6 @@ const icons: Record<string, ReactNode> = {
     ),
 };
 
-export const Icon = ({ type = 'like' }: Props) => {
+export const Icon = ({ type = 'like' }: IconProps) => {
     return <>{icons[type]}</>;
 };
