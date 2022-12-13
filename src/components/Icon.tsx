@@ -31,6 +31,7 @@ export type Icons = typeof iconList[number];
 
 export interface IconProps {
     type: Icons;
+    className?: string
 }
 
 const icons: Record<string, ReactNode> = {
@@ -275,6 +276,6 @@ const icons: Record<string, ReactNode> = {
     ),
 };
 
-export const Icon = ({ type = 'like' }: IconProps) => {
-    return <>{icons[type]}</>;
+export const Icon = ({ type = 'like', className = '' }: IconProps) => {
+    return <span className={className}>{icons[type]}</span>;
 };
