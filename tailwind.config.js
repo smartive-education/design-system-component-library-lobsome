@@ -17,9 +17,14 @@ module.exports = {
                 xl: '48px',
                 xxl: '64px',
             },
+             lineHeight: {
+                '125': '125%',
+                '140': '140%',
+                '145': '145%'
+            },
             transitionDuration: {
                 '350': '350ms'
-            }
+            },
         },
     },
     plugins: [],
