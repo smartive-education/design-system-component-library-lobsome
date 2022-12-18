@@ -1,11 +1,16 @@
 {
-    "name": "@smartive-education/todo-insert-package-name-here",
+    "name": "@smartive-education/design-system-component-library-lobsome",
     "version": "0.0.0-development",
     "publishConfig": {
         "access": "public",
         "registry": "https://npm.pkg.github.com",
         "tag": "latest"
     },
+    "files": [
+        "dist",
+        "tailwind.config.js"
+    ],
+
     "scripts": {
         "prebuild": "npm run build:barrel",
         "build": "rm -rf /dist && npm run build:esm && npm run build:cjs && npm run build:clean",
