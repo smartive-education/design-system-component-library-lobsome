@@ -6,11 +6,20 @@ export interface InteractionButtonProps extends HTMLAttributes<HTMLButtonElement
     type: 'like' | 'share' | 'reply';
 }
 
-const typeClasses: Record<string, string[]> = {
-    share: ['hover:bg-slate-100'],
-    like: ['hover:bg-pink-50', 'hover:text-pink-600'],
-    reply: ['hover:bg-violet-50', 'hover:text-violet-600'],
-};
+// const typeClasses: Record<InteractionButtonProps['type'], Record<'active' | 'inactive', string[]>> = {
+//     share: {
+//         active: ['hover:bg-slate-100'],
+//         inactive: [],
+//     },
+//     like: {
+//         active: ['hover:bg-pink-50', 'hover:text-pink-§600'],
+//         inactive: [],
+//     },
+//     reply: {
+//         active: ['hover:bg-violet-50', 'hover:text-violet-600'],
+//         inactive: []
+//     },
+// };
 
 /**
  * Primary UI component for user interaction
@@ -33,7 +42,7 @@ export const InteractionButton = ({ children, type = 'like', ...props }: Interac
                 'hover:rounded-2xl',
                 'font-semibold',
                 'text-base',
-                ...typeClasses[type],
+                //...typeClasses[type],
             ].join(' ')}
         >
             <Icon type={type} />

@@ -1,7 +1,5 @@
 import React, { HTMLAttributes, ReactNode } from 'react';
 import { Icon, Icons } from './Icon';
-import './Button.css';
-
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
     type: 'slate' | 'violet' | 'gradient';
@@ -12,7 +10,7 @@ export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
 const typeClasses: Record<string, string[]> = {
     slate: ['bg-slate-600', 'hover:bg-slate-700'],
     violet: ['bg-violet-600', 'hover:bg-violet-700'],
-    gradient: ['button-gradient'],
+    gradient: ['bg-gradient-50', 'hover:bg-gradient-70', 'from-pink-500', 'to-violet-600'],
 };
 
 const buttonSizes: Record<string, string[]> = {
