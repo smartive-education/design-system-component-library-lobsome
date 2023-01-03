@@ -10,13 +10,15 @@
         "dist",
         "tailwind.config.js"
     ],
-
+    "exports": "./dist/cjs/index.js",
+    "module": "./dist/esm/index.js",
+    "types": "./dist/types/index.d.ts",
     "scripts": {
         "prebuild": "npm run build:barrel",
-        "build": "rm -rf /dist && npm run build:esm && npm run build:cjs && npm run build:clean",
-        "build:esm": "tsc",
-        "build:cjs": "tsc --module CommonJS --outDir dist/cjs --declarationDir dist/cjs/types",
-        "build:barrel": "ctix create -p ./tsconfig.json -a ./src --overwrite",
+        "build": "rm -rf ./dist && npm run build:esm && npm run build:cjs && npm run build:clean",
+        "build:esm": "tsc --declarationDir dist/types",
+        "build:cjs": "tsc --module CommonJS --outDir dist/cjs",
+        "build:barrel": "ctix create -p ./tsconfig.json -a ./src --overwrite --noBackup",
         "build:clean": "find . -name index.ts -delete",
         "build-storybook": "build-storybook",
         "storybook": "start-storybook -p 6006"
