@@ -1,12 +1,12 @@
 import React from 'react';
-import { Meta, Story } from '@storybook/react';
-import { InteractionButton, Props } from './Interaction-Button';
+import {Meta, Story} from '@storybook/react';
+import {InteractionButton, InteractionButtonProps} from './Interaction-Button';
 
 const meta: Meta = {
     title: 'Interaction Button',
     component: InteractionButton,
     argTypes: {
-        onClick: { action: 'clicked' },
+        onClick: {action: 'clicked'},
         children: {
             defaultValue: 'Default Text',
             control: 'text',
@@ -16,6 +16,7 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: Story<Props> = (args) => <InteractionButton {...args} />;
+const Template: Story<InteractionButtonProps> = ({children, ...args}) =>
+    <InteractionButton {...args}>{children}</InteractionButton>;
 
 export const Default = Template.bind({});
