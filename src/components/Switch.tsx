@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
+
+export class SwitchProps {
+}
 
 export function Tabs({ children }) {
     function findActiveTab(a) {
@@ -55,3 +58,4 @@ export function Tab({ children, activeTab, currentTab, setActiveTab }) {
 }
 
 Tab.displayName = "Tab";
+

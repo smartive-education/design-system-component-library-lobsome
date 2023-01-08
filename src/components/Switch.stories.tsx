@@ -1,19 +1,19 @@
 import React from 'react';
 import {Meta, Story} from '@storybook/react';
-import {Switch, SwitchProps, Tab, Tabs} from './Switch';
+import { SwitchProps, Tab, Tabs} from './Switch';
 
 const meta: Meta = {
     title: 'Switch',
-    component: Switch,
+    component: Tabs,
 };
 
 export default meta;
 
 
-const Template: Story<SwitchProps> = (args:{active}) => (
+const Template: Story<SwitchProps> = (args) => (
     <Tabs>
-        <Tab >Deine Mumbles</Tab>
-        <Tab >Deine Likes</Tab>
+        <Tab activeTab={undefined} currentTab={undefined} setActiveTab={undefined} >Deine Mumbles</Tab>
+        <Tab activeTab={undefined} currentTab={undefined} setActiveTab={undefined} >Deine Likes</Tab>
     </Tabs>
 
 );
