@@ -3,9 +3,10 @@ import React, { HTMLAttributes, useId } from 'react';
 export interface TextareaProps extends HTMLAttributes<HTMLTextAreaElement> {
     events?: { [key: string]: (e: Event) => void };
     label?: string;
+    placeholder?: string
 }
 
-export const Textarea = ({ label = '', events, ...rest }: TextareaProps) => {
+export const Textarea = ({ placeholder = '', label = '', events, ...rest }: TextareaProps) => {
     const id = useId();
     return (
         <div>
@@ -20,19 +21,19 @@ export const Textarea = ({ label = '', events, ...rest }: TextareaProps) => {
                     'w-full',
                     'bg-slate-100',
                     'p-4',
+                    'font-medium',
                     'border',
                     'border-slate-200',
                     'rounded-lg',
-                    'outline-2',
-                    'hover:outline-slate-300',
-                    'focus:outline-violet-600',
                     'resize-none',
+                    'placeholder:text-slate-500',
+                    'hover:border-slate-300',
                     'outline-transparent',
-                    'font-medium',
-                    'placeholder:text-slate-500'
+                    'focus:outline-violet-600'
                 ].join(' ')}
                 {...rest}
                 {...events}
+                placeholder={placeholder}
             />
         </div>
     );

@@ -14,6 +14,11 @@ const meta: Meta = {
                 type: 'text'
             }
         },
+        placeholder: {
+            control: {
+                type: 'text'
+            }
+        },
     }
 };
 
