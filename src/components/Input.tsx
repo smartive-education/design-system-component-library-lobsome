@@ -19,7 +19,7 @@ export const Input = ({ label = '', events, name, children, ...rest }: InputProp
                 <input
                     type="text"
                     id={name}
-                    className="py-4 pl-4 pr-10 border border-slate-300 rounded-lg leading-4 hover:border-violet-600 h-12 font-medium focus:border-2 focus:border-violet-600 focus-visible:border-2 focus-visible:border-violet-600 focus:outline-none"
+                    className="py-4 pl-4 pr-10 border border-slate-300 rounded-lg leading-4 hover:border-violet-600 h-12 font-medium outline-transparent focus:outline-violet-600"
                     {...rest}
                     {...events}
                 />
