@@ -1,4 +1,4 @@
-import React, {HTMLAttributes, ReactNode, useId} from 'react';
+import React, { HTMLAttributes, ReactNode, useId } from 'react';
 
 export interface InputProps extends HTMLAttributes<HTMLInputElement> {
     events?: { [key: string]: (e: Event) => void };
