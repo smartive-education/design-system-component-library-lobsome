@@ -2,19 +2,11 @@ import React, { HTMLAttributes, useId } from 'react';
 
 export interface TextareaProps extends HTMLAttributes<HTMLTextAreaElement> {
     events?: { [key: string]: (e: Event) => void };
-    label?: string;
-    placeholder?: string
 }
 
-export const Textarea = ({ placeholder = '', label = '', events, ...rest }: TextareaProps) => {
+export const Textarea = ({ events, ...rest }: TextareaProps) => {
     const id = useId();
     return (
-        <div>
-            {label && (
-                <label htmlFor={id} className="block mb-0 text-slate-700 text-base">
-                    {label}
-                </label>
-            )}
             <textarea
                 id={id}
                 className={[
@@ -33,8 +25,6 @@ export const Textarea = ({ placeholder = '', label = '', events, ...rest }: Text
                 ].join(' ')}
                 {...rest}
                 {...events}
-                placeholder={placeholder}
             />
-        </div>
     );
 };
