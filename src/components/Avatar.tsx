@@ -22,5 +22,22 @@ const avatarClasses: Record<string, string[]> = {
 };
 
 export const Avatar = ({ size = AvatarSize.M, src, alt, showBorder = false, ...props }: AvatarProps) => {
-    return <img className={['rounded-full bg-violet-200', ...avatarClasses[size], showBorder ? 'border-6 border-slate-100' : ''].join(' ')} src={src} alt={alt} {...props}/>;
+    return (
+        <div className={['inline-block', 'overflow-hidden', 'rounded-full'].join(' ')}>
+            <img
+                className={[
+                    'rounded-full bg-violet-200',
+                    'hover:scale-110',
+                    'transition',
+                    'duration-300',
+                    'ease-in-out',
+                    ...avatarClasses[size],
+                    showBorder ? 'border-[6px] border-slate-100' : '',
+                ].join(' ')}
+                src={src}
+                alt={alt}
+                {...props}
+            />
+        </div>
+    );
 };
