@@ -15,12 +15,12 @@
     "types": "./dist/types/index.d.ts",
     "scripts": {
         "prebuild": "npm run build:barrel",
-        "build": "rm -rf ./dist && npm run build:icons && npm run build:esm && npm run build:cjs && npm run build:clean",
+        "build": "rm -rf ./dist && npm run build:esm && npm run build:cjs && npm run build:clean",
         "build:esm": "tsc --declarationDir dist/types",
         "build:cjs": "tsc --module CommonJS --outDir dist/cjs",
         "build:barrel": "ctix create -p ./tsconfig.json -a ./src --overwrite --noBackup",
         "build:clean": "find . -name index.ts -delete",
-        "build:icons": "npx @svgr/cli@5.5.0 --config-file \".svgrrc.js\" --out-dir ./dist/icons -- ./src/assets/icons",
+        "build:icons": "npx @svgr/cli@5.5.0 --typescript --config-file \".svgrrc.js\" --out-dir ./src/components/icons -- ./src/assets/icons",
         "build-storybook": "build-storybook",
         "storybook": "start-storybook -p 6006"
     },
