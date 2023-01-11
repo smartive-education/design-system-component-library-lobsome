@@ -1,13 +1,14 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { IconLink, IconLinkColors, IconLinkProps } from './Icon-Link';
-import Mumble from '../assets/icons/Mumble.svg';
+import Mumble from './icons/Mumble';
 
 const meta: Meta = {
     title: 'Icon-Link',
     component: IconLink,
     args: {
         color: IconLinkColors.SLATE,
+        label: 'Icon link',
         events: {
             onClick: (event) => console.log(event),
         },
@@ -27,7 +28,7 @@ export default meta;
 
 const Template: Story<IconLinkProps> = (args) => (
     <IconLink {...args}>
-        <Mumble /> Das ist ein Link
+        <Mumble />
     </IconLink>
 );
 
