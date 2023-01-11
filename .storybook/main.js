@@ -1,6 +1,3 @@
-const path = require('path');
-const pathToInlineSvg = path.resolve(__dirname, '../src/assets/icons');
-
 module.exports = {
     typescript: {
         check: false,
@@ -19,24 +16,17 @@ module.exports = {
         "@storybook/addon-links",
         "@storybook/addon-essentials",
         "@storybook/addon-interactions",
-        "@storybook/addon-postcss"
+        {
+            name: '@storybook/addon-postcss',
+            options: {
+                cssLoaderOptions: {
+                    importLoaders: 1,
+                },
+                postcssLoaderOptions: {
+                    implementation: require('postcss'),
+                },
+            },
+        },
     ],
     framework: "@storybook/react",
-    webpackFinal: async (config) => {
-        const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test('.svg'));
-        fileLoaderRule.exclude = pathToInlineSvg;
-        config.module.rules.push({
-            test: /\.svg$/,
-            include: pathToInlineSvg,
-            use: [
-                {
-                    loader: '@svgr/webpack',
-                    options: {
-                        configFile: '.svgrrc.js',
-                    },
-                },
-            ],
-        });
-        return config;
-    },
 }
