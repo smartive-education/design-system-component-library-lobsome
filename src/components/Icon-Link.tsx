@@ -1,12 +1,17 @@
-import { Icon, Icons } from './Icon';
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 import React from 'react';
 
+export enum IconLinkColors {
+    SLATE = 'slate',
+
+    VIOLET = 'violet',
+}
+
 export interface IconLinkProps extends HTMLAttributes<HTMLAnchorElement> {
-    icon?: Icons;
-    text: string;
-    type: 'slate' | 'violet';
+    color: IconLinkColors;
+    label: string;
     events?: { [key: string]: (e: Event) => void };
+    children: ReactNode;
 }
 
 const typeClassNames: Record<string, string[]> = {
@@ -14,7 +19,7 @@ const typeClassNames: Record<string, string[]> = {
     violet: ['text-violet-600', 'hover:text-violet-900'],
 };
 
-export const IconLink = ({ text, icon, events, type = 'slate', ...rest }: IconLinkProps) => {
+export const IconLink = ({ events, color = IconLinkColors.SLATE, children, label, ...rest }: IconLinkProps) => {
     return (
         <a
             className={[
@@ -30,13 +35,13 @@ export const IconLink = ({ text, icon, events, type = 'slate', ...rest }: IconLi
                 'text-sm',
                 'leading-[14px]',
                 'cursor-pointer',
-                ...typeClassNames[type],
+                ...typeClassNames[color],
             ].join(' ')}
             {...rest}
             {...events}
         >
-            {icon && <Icon type={icon} />}
-            {text}
+            <span>{children}</span>
+            {label}
         </a>
     );
 };

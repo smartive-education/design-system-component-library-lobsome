@@ -1,25 +1,35 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { IconLink, IconLinkProps } from './Icon-Link';
+import { IconLink, IconLinkColors, IconLinkProps } from './Icon-Link';
+import Mumble from './icons/Mumble';
 
 const meta: Meta = {
     title: 'Icon-Link',
     component: IconLink,
     args: {
-        text: 'simple link',
-        type: 'slate',
+        color: IconLinkColors.SLATE,
+        label: 'Icon link',
         events: {
             onClick: (event) => console.log(event),
         },
     },
-    argTypes: {},
+    argTypes: {
+        children: { control: { type: 'text' } },
+        color: {
+            control: {
+                type: 'select',
+                options: [...Object.values(IconLinkColors)],
+            },
+        },
+    },
 };
 
 export default meta;
 
-const Template: Story<IconLinkProps> = (args) => <IconLink {...args} />;
+const Template: Story<IconLinkProps> = (args) => (
+    <IconLink {...args}>
+        <Mumble />
+    </IconLink>
+);
 
-export const Simple_Link = Template.bind({});
-
-export const Icon = Template.bind({});
-Icon.args = { icon: 'mumble', text: 'icon link' };
+export const Icon_Link = Template.bind({});
