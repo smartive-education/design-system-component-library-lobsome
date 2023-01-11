@@ -1,13 +1,12 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Input, InputProps } from './Input';
-import Mumble from '../assets/icons/Mumble.svg';
+import Mumble from './icons/Mumble';
 
 const meta: Meta = {
     title: 'Input',
     component: Input,
     args: {
-        name: 'test-input',
         label: 'Label',
         events: {
             onChange: (event) => console.log(event),
